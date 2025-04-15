@@ -190,9 +190,10 @@ document.getElementById("seatNumber").addEventListener("input", function () {
 
     const amount = document.querySelector(".cart-total").textContent.replace("₹", "").trim();
     const paymentStatus = "Paid";
+    const BASE_URL = "https://pixelplates-backend.onrender.com";
 
-    // ✅ Send order to backend
-    fetch("https://pixelplates-backend.onrender.com", {
+    // then use like:
+    fetch(`${BASE_URL}/orders`)
       method: "POST",
       headers: {
         "Content-Type": "application/json",
