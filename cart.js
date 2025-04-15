@@ -192,30 +192,30 @@ document.getElementById("seatNumber").addEventListener("input", function () {
     const paymentStatus = "Paid";
     const BASE_URL = "https://pixelplates-backend.onrender.com";
 
-    // then use like:
-    fetch(`${BASE_URL}/orders`)
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        phone: phone,
-        seat: seat,
-        items: formattedItems,
-        amount: parseFloat(amount),
-        payment_status: paymentStatus
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data.message);
-        localStorage.removeItem("cart");
-        displayCart();
-      })
-      .catch(err => {
-        console.error("Failed to store order:", err);
-      });
+fetch(`${BASE_URL}/submit-order`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name: name,
+    phone: phone,
+    seat: seat,
+    items: formattedItems,
+    amount: parseFloat(amount),
+    payment_status: paymentStatus
+  }),
+})
+  .then(res => res.json())
+  .then(data => {
+    console.log(data.message);
+    localStorage.removeItem("cart");
+    displayCart();
+  })
+  .catch(err => {
+    console.error("Failed to store order:", err);
+  });
+
 
 
   });
