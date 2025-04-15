@@ -192,7 +192,7 @@ document.getElementById("seatNumber").addEventListener("input", function () {
     const paymentStatus = "Paid";
 
     // ✅ Send order to backend
-    fetch("http://localhost:5000/submit-order", {
+    fetch("https://pixelplates-backend.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
