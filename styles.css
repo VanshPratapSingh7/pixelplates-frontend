@@ -302,7 +302,7 @@ footer {
 }
 
 .modal-content {
-    background-color: var(- --dark-bg);
+/*     background-color: var(- --dark-bg); */
     margin: 5% auto;
     padding: 30px;
     border-radius: 10px;
@@ -310,6 +310,7 @@ footer {
     max-width: 700px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
     position: relative;
+    backdrop-filter: blur(20px); 
 }
 
 .close-btn {
